@@ -4,7 +4,7 @@ const port = 4000;
 app.use(express.json());
 
 // GET ALL
-app.get('/', function (req, res) {
+app.get('/users', function (req, res) {
     let users = [
         {
             id: 1,
@@ -19,22 +19,22 @@ app.get('/', function (req, res) {
 })
 
 // GET by id
-app.get('/:id', function (req, res) {
+app.get('/users/:id', function (req, res) {
     res.json(req.params);
 })
 
 // POST request, for adding purpose
-app.post('/', (req, res) => {
+app.post('/users', (req, res) => {
     res.json(req.body);
 })
 
 // PUT request, for update purpose
-app.put('/:id', (req, res) => {
+app.put('/users/:id', (req, res) => {
     res.send(req.body);
 })
 
 // DELETE request, for delete purpose
-app.delete('/:id', (req, res) => {
+app.delete('/users/:id', (req, res) => {
     res.send(req.params);
 })
 
