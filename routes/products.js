@@ -33,4 +33,32 @@ router.post('/', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+    Product.findByIdAndDelete(req.params.id).then((product) => {
+        if (product) {
+            res.json({ message: 'Product deleted Successfully' });
+        } else {
+            res.status(400).send(`Product not found`);
+        }
+    })
+})
+
+router.put('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;  // Object Destructuring
+        const updateData = req.body;
+        const updatedProduct = await Product.findByIdAndUpdate(id, updateData, {
+            new: true, // return updated document intead of original
+            runValidators: true // schmea validators are applied during update
+        })
+
+        if (!updatedProduct) {
+            res.status(400).send({ message: `Product not found` });
+        }
+        res.json({ message: 'Product Updated Successfully', data: updatedProduct });
+    } catch (error) {
+        res.status(500).json({ message: `Error Updating Product`, error: error.message });
+    }
+})
+
 module.exports = router;
