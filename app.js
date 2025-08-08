@@ -5,9 +5,11 @@ app.use(express.json()); // loads a middleware
 
 const bookRoutes = require('./routes/books');
 const productRoutes = require('./routes/products');
+const categoryRoutes = require('./routes/categories');
 
 app.use('/api/books', bookRoutes); // loads a middleware
 app.use('/api/products', productRoutes); 
+app.use('/api/categories', categoryRoutes); 
 
 const port = 4000;
 app.listen(port, () => { // Bind and listen for connections
