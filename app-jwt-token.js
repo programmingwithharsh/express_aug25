@@ -18,7 +18,7 @@ const generateToken = (userId, role) => {
 }
 
 const authenticateToken = (req, res, next) => {
-    const authHeader = req.header['authorization']; // extract the Authorization header from request
+    const authHeader = req.headers['authorization']; // extract the Authorization header from request
     const token = authHeader && authHeader.split(" ")[1]; // 'Bearer Token'
     if (!token) {
         return res.status(401).json({ message: 'Access token required' });
