@@ -1,10 +1,10 @@
 {
   "name": "express_server",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "api/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,9 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.0",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
   }
 }
